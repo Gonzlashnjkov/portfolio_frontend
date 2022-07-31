@@ -1,0 +1,52 @@
+<h3 class="text-center">Hard & Soft skills</h3>
+<app-habilidad (onDelete)="delete(habilidad)" (onUpdate)="update(habilidad)"*ngFor="let habilidad of habilidades" [habilidad]="habilidad"></app-habilidad>
+
+
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-auto my-6 mx-auto max-w-6xl">
+      <!--content-->
+      <div class="shadow-lg relative flex flex-col w-full  outline-none focus:outline-none code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6 ">
+        <!--header-->
+        <div class="flex items-start justify-between p-5 border-b border-solid dark:border-gray-600 rounded-t">
+          <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+            Nueva Habilidad
+          </h3>
+          <button class="btn btn-black" (click)="toggleModal()">
+            
+          </button>
+        </div>
+        <!--body-->
+        <div class="login p-6 space-y-6">
+          <form class="custom-form" method="post">
+            <div class="mb-6">
+              <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Titulo</label>
+              <input
+                type="text"
+                [(ngModel)]="habilidad.titulo"
+                name="titulo"
+                required="required"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label for="porcentaje" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Porcentaje</label>
+              <input
+                type="number"
+                max="100"
+                min="0"
+                [(ngModel)]="habilidad.porcentaje"
+                name="porcentaje"
+                required="required"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+            </div>
+            <div class="flex items-center justify-end mt-4">
+              <button type="submit" (click)="this.add()" class="btn btn-dark">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

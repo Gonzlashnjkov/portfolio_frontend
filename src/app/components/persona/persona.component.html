@@ -1,0 +1,123 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 ml-auto mr-auto">
+				<div>
+					<img src="assets/images/banner.jpg" class="rounded img-raised img-fluid img-responsive">
+				</div>
+
+ 							<div *ngIf="editBanner">
+								<div>
+								  <!--content-->
+								  <div class="shadow-lg relative flex flex-col w-full  outline-none focus:outline-none code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+									<!--header-->
+									<div>
+									  <h3>
+										Editar Banner 
+									  </h3>
+									</div>
+									<!--body-->
+									<div>
+									  <form class="custom-form" [formGroup]="fotoForm" (ngSubmit)="updateBanner()" method="post">
+										<div>
+										  <label>Archivo</label>
+										  <input name="imagen" (change)="onFileSelectBanner($event)" type="file">
+										</div>
+										<div>
+										  <button type="submit" class="btn btn-dark btn-sm">Enviar</button>
+										</div>
+									  </form>
+									</div>
+								  </div>
+								</div>
+							  </div>
+							  <div *ngIf="editBanner"></div>
+							<button type="button" (click)="toggleEditBanner()" class="btn btn-primary btn-lg btn-block">Editar</button>
+
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6 ml-auto mr-auto">
+											<div>
+												<img src="assets/images/perfil.jpg" alt="" class="img-raised img-thumbnail rounded-circle img-fluid img-responsive center-block">
+											</div>
+
+							<div *ngIf="editFoto">
+								<div>
+								  <!--content-->
+								  <div class="shadow-lg relative flex flex-col w-full  outline-none focus:outline-none code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+									<!--header-->
+									<div>
+									  <h3>
+										Editar Foto 
+									  </h3>
+									</div>
+									<!--body-->
+									<div>
+									  <form class="custom-form" [formGroup]="fotoForm" (ngSubmit)="updateFoto()" method="post">
+										<div>
+										  <label>Archivo</label>
+										  <input name="imagen" (change)="onFileSelectFoto($event)" type="file">
+										</div>
+										<div>
+										  <button type="submit" class="btn btn-dark btn-sm">Enviar</button>
+										</div>
+									  </form>
+									</div>
+								  </div>
+								</div>
+							  </div>
+							  <div *ngIf="editFoto"></div>
+							</div>
+							<button type="button" (click)="toggleEditFoto()" class="btn btn-primary btn-lg btn-block">Editar</button>
+
+							
+							
+<h1 *ngIf="!editNombre" class="row-md-6 ml-auto mr-auto"><p>{{ personas[0].nombre }}</p></h1>
+  <form *ngIf="editNombre" method="post">
+    <div class="mb-6">
+      <input
+        type="text"
+		[(ngModel)]="personas[0].nombre"
+        name="resumen"
+        required="required"
+      >
+    </div>
+    <div class="flex items-center justify-end mt-4">
+      <button type="submit" (click)="updateNombre()" class="btn btn-dark btn-sm">Actualizar</button>
+    </div>
+  </form>
+  <button type="button" *ngIf="!editNombre" (click)="toggleEditNombre()" class="btn btn-primary btn-lg btn-block">Editar</button>
+
+  <h3 *ngIf="!editTitulo" class="row-md-6 ml-auto mr-auto"><p>{{ personas[0].titulo }}</p></h3>
+  <form *ngIf="editTitulo" method="post">
+    <div class="mb-6">
+      <input
+        type="text"
+        [(ngModel)]="personas[0].titulo"
+        name="resumen"
+        required="required">
+    </div>
+    <div class="flex items-center justify-end mt-4">
+      <button type="submit" (click)="updateTitulo()" class="btn btn-dark btn-sm">Actualizar</button>
+    </div>
+  </form>
+  <button type="button" *ngIf="!editTitulo" (click)="toggleEditTitulo()" class="btn btn-primary btn-lg btn-block">Editar</button>
+
+  <h4 *ngIf="!editResumen" class="row-md-6 ml-auto mr-auto"><p>{{ personas[0].resumen }}</p></h4>
+  <form *ngIf="editResumen" method="post">
+    <div class="mb-6">
+      <input
+        type="text"
+        [(ngModel)]="personas[0].resumen"
+        name="resumen"
+        required="required">
+    </div>
+    <div class="flex items-center justify-end mt-4">
+      <button type="submit" (click)="updateResumen()" class="btn btn-dark btn-sm">Actualizar</button>
+    </div>
+  </form>
+  <button type="button" *ngIf="!editResumen" (click)="toggleEditResumen()" class="btn btn-primary btn-lg btn-block">Editar</button>
+</div>
+							
+	                     
+	                  
+                

@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+<div class="card" style="width: 35rem;">
+  <div class="card-body card bg-primary text-white">
+    <h5 class="card-title">{{educacion.titulo}}</h5>
+    <p class="card-text">{{educacion.descripcion}}</p>
+    <p class="card-text">{{educacion.fecha}}</p>
+    <div>
+      <button type="button"(click)="toggleModal()" class="btn btn-success">Editar</button>
+    </div>
+    <div>
+    <button type="button" (click)="this.delete()" class="btn btn-danger">Borrar</button>
+  </div>
+  </div>
+</div>
+
+<div *ngIf="showModal">
+  <div>
+    <!--content-->
+    <div>
+      <!--header-->
+      <div>
+        <h3>
+          Editar Educacion
+        </h3>
+        <button type="button"(click)="toggleModal()" class="btn btn-dark">Editar</button>
+      </div>
+      <!--body-->
+      <div>
+        <form>
+          <div>
+            <label>Titulo</label>
+            <input
+              type="text"
+              [(ngModel)]="educacion.titulo"
+              name="titulo"
+              required="required"
+            />
+          </div>
+          <div>
+            <label>Descripcion</label>
+            <input
+              type="text"
+              [(ngModel)]="educacion.descripcion"
+              name="descripcion"
+              required="required"
+            />
+          </div>
+
+          <div>
+            <label>Fecha</label>
+            <input
+              type="text"
+              [(ngModel)]="educacion.fecha"
+              name="fecha"
+              required="required"
+            />
+          </div>
+          
+          <div>
+            <button type="submit" (click)="this.update()"class="btn btn-dark">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal"></div>
+
+

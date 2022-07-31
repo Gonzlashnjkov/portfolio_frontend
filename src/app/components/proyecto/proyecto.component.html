@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+<div class="card" style="width: 35rem;">
+  <div class="card-body text-white bg-primary">
+    <h5 class="card-title">{{proyecto.titulo}}</h5>
+    <p class="card-text">{{proyecto.descripcion}}</p>
+    <div>
+      <a class="nav-link" href="https://github.com/Gonzlashnjkov?tab=repositories" target="_blank">
+    </a>
+      <button type="button"(click)="toggleModal()" class="btn btn-success">Editar</button>
+    </div>
+    <div>
+    <button type="button" (click)="this.delete()" class="btn btn-danger">Borrar</button>
+  </div>
+</div> 
+
+<div *ngIf="showModal">
+  <div>
+    <!--content-->
+    <div>
+      <!--header-->
+      <div>
+        <h3>
+          Editar Proyecto
+        </h3>
+        <button type="button"(click)="toggleModal()" class="btn btn-dark">Editar</button>
+      </div>
+      <!--body-->
+      <div>
+        <form>
+          <div>
+            <label>Titulo</label>
+            <input
+              type="text"
+              [(ngModel)]="proyecto.titulo"
+              name="titulo"
+              required="required"
+            />
+          </div>
+          <div>
+            <label>Descripcion</label>
+            <input
+              type="text"
+              [(ngModel)]="proyecto.descripcion"
+              name="descripcion"
+              required="required"
+            />
+          </div>
+          <div>
+            <label>URL</label>
+            <input
+              type="text"
+              [(ngModel)]="proyecto.url"
+              name="url"
+              required="required"
+              
+            />
+          </div>
+          <div>
+            <button type="submit" (click)="this.update()"class="btn btn-dark">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal"></div>
+
+  

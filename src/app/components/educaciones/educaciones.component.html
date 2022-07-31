@@ -1,0 +1,4 @@
+<div>
+<h3 class="text-center">Educación</h3>
+<app-educacion (onDelete)="delete(educacion)" (onUpdate)="update(educacion)"*ngFor="let educacion of educaciones" [educacion]="educacion"></app-educacion>
+</div>
